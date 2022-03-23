@@ -1,0 +1,76 @@
+{%  load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+	
+<!-- Mirrored from demo.artureanec.com/html/crypterium/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Aug 2021 22:46:47 GMT -->
+	<head>
+		<title> History </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
+
+		<meta name="theme-color" content="#3F6EBF" />
+		<meta name="msapplication-navbutton-color" content="#3F6EBF" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#3F6EBF" />
+
+		<!-- CSS
+		================================================== -->
+		<link rel="stylesheet" href="{% static 'css2/bootstrap.min.css' %}" type="text/css">
+		<!-- <link rel="stylesheet" href="{% static 'css/style.min.css' %}" type="text/css"> -->
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "row">
+                {% if transaction == 0 %}
+                <div class = "ml-5">
+                    <div class = "card">
+                        <div class = "card-header">
+                            <div class = "card-title">
+                                <h2 class = "text-center text-danger"> YOU DO NOT HAVE ANY TRANSACTION @ THE MOMENT </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <table class="table caption-top table-bordered table-striped table-condensed table-hover table-dark table-responsive">
+                    <caption> Your Crypto History </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Transaction_id</th>
+                        <th scope="col">Transaction amount </th>
+                        <th scope="col">Transaction Time </th>
+                        <th scope="col">Transaction Sender</th>
+                        <th scope="col">Transaction Receiver</th>
+                        <th scope="col">Transaction Cipher Key</th>
+                        <th scope="col">Transaction status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for t in transactions %}
+                      <tr>
+                        <th scope="row">{{t.id}}</th>
+                        <td>{{t.transaction_id}}</td>
+                        <td>{{t.transaction_amount}}</td>
+                        <td>{{t.time}}</td>
+                        <td>{{t.sender.wallet_addr}}</td>
+                        <td>{{t.receiver.wallet_addr}}</td>
+                        <td>{{t.transaction_cipher_key}}</td>
+                        <td>{{t.status}}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+            <div class = "row">
+                <div class = "row col-12">
+                    <a href = "{% url 'wallet' %}" class="btn btn-info btn-lg mt-3" type="button" role="button"><b>Back To My Wallet</b></a>
+                </div>
+            </div>
+        </div>
+    </body> 
+<html>

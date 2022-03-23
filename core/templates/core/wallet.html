@@ -1,0 +1,139 @@
+{% extends 'core/base.htm' %}
+{% load static %}
+
+
+{% block title %} Wallet {% endblock title %}
+
+
+{% block content %}
+
+{% include 'core/header.htm' %}
+
+ <!-- start main -->
+ <main role="main">
+    <!-- start section Crypto Converter-->
+    <section class="section jarallax" data-speed="0.4">
+        <img class="jarallax-img" src="{% static 'img/bg_1.jpg' %}" alt="demo" />
+        <div class="pattern"
+            style="background: -moz-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(114,76,253,0.66)), color-stop(100%, rgba(61,168,243,0.66)));
+            background: -webkit-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+            background: -o-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+            background: -ms-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+            background: linear-gradient(90deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);">
+        </div>
+
+        <div class="grid grid--container">
+            <div class="section-heading section-heading--white section-heading--center  col-MB-60">
+                <h2 class="__title"> MY WALLET DATA</h2>
+                <hr style = "color:darkgreen">
+                <br>
+            </div>
+
+            <div class="row row--xs-middle">
+                <div class="col col--md-10 col--lg-8">
+                    <!-- start calculator -->
+                    <div class="calculator">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col col--sm-12  col-MB-20 col-sm-MB-0">
+                                    {% if wallet %}
+
+                                    <div class = "for-wallet">
+                                        <h3 style = "color:floralwhite">Your New Wallet Address</h3>
+                                        <h2 style = "color: crimson;"> {{wallet}} </h2><br>
+                                    </div>
+
+                                    <div class = "for-balance">
+                                        <h3 style = "color:floralwhite">Your Wallet Balance</h3>
+                                        <h2 style = "color: crimson;"> 
+                                            {{wallet.wallet_bal}}<small>btc</small>&nbsp; &nbsp; &nbsp; &nbsp; ~= &nbsp; &nbsp; &nbsp; &nbsp; ${{wallet.return_dollar}} 
+                                        </h2>
+                                    </div>
+                                    <br><br>
+                                    <div class = "row">
+                                        <div class = "col--sm-5">
+                                            <a href = "{% url 'send_coin' %}" class="custom-btn custom-btn--medium custom-btn--style-2 wide" type="button" role="button">Send Coin</a>
+                                        </div>
+                                        <div class = "col--sm-2"></div>
+                                        <div class = "col--sm-5">
+                                            <a href = "{% url 'receive_coin' %}" class="custom-btn custom-btn--medium custom-btn--style-3 wide" type="button" role="button">Receive Coin</a> 
+                                        </div>
+                                        <div class = "col--sm-12">
+                                        <br><br><br>
+                                            <a href = "{% url 'history' %}" class="custom-btn custom-btn--medium custom-btn--style-4 wide" type="button" role="button">See My Transaction History</a>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="input-wrp">
+                                        <input class="textfield" disabled type="text" value = "{{wallet}}" placeholder="" />
+                                    </div> -->
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% if not wallet %}
+                            <a href = "{% url 'generate_address' %}" class="custom-btn custom-btn--medium custom-btn--style-2 wide" type="submit" role="button">Generate My Wallet Address</a>
+                            {% endif %}
+                        </form>
+                    </div>
+                    <!-- end calculator -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end section -->
+
+    
+    <!-- start section We Can Help You-->
+    <section class="section jarallax" data-speed="0.5">
+        <img class="jarallax-img" src="{% static 'img/bg_.jpg' %}" alt="demo" />
+
+        <div class="pattern" style="background-color: rgba(0, 0, 0, 0.53);"></div>
+
+        <div class="grid grid--container">
+            <div class="section-heading section-heading--center section-heading--white  col-MB-45">
+                <h2 class="__title">We can Help You</h2>
+            </div>
+
+            <div class="row row--xs-middle">
+                <div class="col col--xs-10">
+                    <!-- start company contacts -->
+                    <div class="company-contacts  text--center">
+                        <div class="__inner">
+                            <div class="row row--xs-between">
+                                <!-- start item -->
+                                <div class="col col--lg-4 col--xl-3">
+                                    <div class="__item">
+                                        <p>1010 Avenue of the Moon New York, NY 10018 US.</p>
+                                    </div>
+                                </div>
+                                <!-- end item -->
+
+                                <!-- start item -->
+                                <div class="col col--sm-6 col--lg-4 col--xl-3">
+                                    <div class="__item">
+                                        <p>Call Us: <a href="tel:+70000000000">(066) 052 39876</a></p>
+                                    </div>
+                                </div>
+                                <!-- end item -->
+
+                                <!-- start item -->
+                                <div class="col col--sm-6 col--lg-4 col--xl-3">
+                                    <div class="__item">
+                                        <p>Email: <a href="mailto:info@crypterium.co">info@crypterium.co</a></p>
+                                    </div>
+                                </div>
+                                <!-- end item -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end company contacts -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end section -->
+
+</main>
+<!-- end main -->
+
+{% endblock content %}

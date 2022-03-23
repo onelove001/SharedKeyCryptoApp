@@ -1,0 +1,211 @@
+{% extends 'core/base.htm' %}
+{% load static %}
+
+{% block title %}
+ Home
+{% endblock title %}
+
+
+{% block content %}
+   
+    <!-- start start screen -->
+    <div id="start-screen" class="start-screen--light start-screen--style-1">
+        <div class="start-screen__static-bg jarallax" data-speed="0.3" style="background-image: url(../../../media/Images/bg_2.jpg);">
+
+            <div class="pattern"
+                style="background: -moz-linear-gradient(0deg, rgba(114,76,253,0.46) 0%, rgba(61,168,243,0.46) 100%);
+                background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(114,76,253,0.46)), color-stop(100%, rgba(61,168,243,0.46)));
+                background: -webkit-linear-gradient(0deg, rgba(114,76,253,0.46) 0%, rgba(61,168,243,0.46) 100%);
+                background: -o-linear-gradient(0deg, rgba(114,76,253,0.46) 0%, rgba(61,168,243,0.46) 100%);
+                background: -ms-linear-gradient(0deg, rgba(114,76,253,0.46) 0%, rgba(61,168,243,0.46) 100%);
+                background: linear-gradient(90deg, rgba(114,76,253,0.46) 0%, rgba(61,168,243,0.46) 100%);">
+            </div>
+
+            <div class="start-screen__content  text--center">
+                <div class="start-screen__content__inner">
+                    <div class="grid grid--container  col--xs-align-bottom">
+                        <div class="row row--xs-middle">
+                            <div class="col col--lg-10">
+                               <marquee> <h1 class="__title">YOUR DIGITAL CURRENCY WALLET</h1> </marquee>
+
+                                <!-- <p>Crypterium is the world’s most popular way to buy and sell bitcoin, ethereum, and litecoin</p> -->
+
+                                <form class="wallet-form  form--horizontal" action="#">
+                                    <div class="b-table">
+                                        <div class="cell v-middle">
+                                            <div class="input-wrp">
+                                                <input class="textfield" type="text" value="" placeholder="E-mail" />
+                                            </div>
+                                        </div>
+
+                                        <div class="cell v-middle">
+                                            <button class="custom-btn custom-btn--medium custom-btn--style-2" type="submit" role="button">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <p>
+                                    <a class="link" href="www.google.com"><small>Talks About Digital Currency?</small></a> &nbsp;&nbsp; <a><small></small></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid--container  col--xs-align-bottom">
+                        <div class="facts">
+                            <div class="__inner">
+                                <div class="row row--xs-middle">
+                                    <div class="col col--sm-4 col--md-4">
+                                        <div class="__item text--sm-left">
+                                            <span class="num js-count" data-from="0" data-to="20" data-decimals="1" data-before="$" data-after="M"></span><br>
+                                            Volume of People Per Day
+                                        </div>
+                                    </div>
+
+                                    <div class="col col--sm-4 col--md-3">
+                                        <div class="__item text--sm-left">
+                                            <span class="num js-count" data-from="0" data-to="25" data-decimals="3"> 25</span><br>
+                                            This Wallet Users
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="scroll-discover hide show--md">scroll down<b></b></span>
+
+    </div>
+    <!-- end start screen -->
+
+	{% include 'core/header.htm' %}
+
+    <!-- start main -->
+    <main role="main">
+        <!-- start section Crypto Converter-->
+        <section class="section jarallax" data-speed="0.4">
+            <img class="jarallax-img" src="{% static 'img/bg_1.jpg' %}" alt="demo" />
+
+            <div class="pattern"
+                style="background: -moz-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+                background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(114,76,253,0.66)), color-stop(100%, rgba(61,168,243,0.66)));
+                background: -webkit-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+                background: -o-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+                background: -ms-linear-gradient(0deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);
+                background: linear-gradient(90deg, rgba(114,76,253,0.66) 0%, rgba(61,168,243,0.66) 100%);"></div>
+
+            <div class="grid grid--container">
+                <div class="section-heading section-heading--white section-heading--center  col-MB-60">
+                    <h5 class="__subtitle">Calculator</h5>
+
+                    <h2 class="__title">Crypto Converter</h2>
+                </div>
+
+                <div class="row row--xs-middle">
+                    <div class="col col--md-10 col--lg-8">
+                        <!-- start calculator -->
+                        <div class="calculator">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col col--sm-6  col-MB-20 col-sm-MB-0">
+                                        <span>Give</span>
+
+                                        <div class="input-wrp">
+                                            <input class="textfield" type="text" value="0.00" placeholder="" />
+
+                                            <select class="js-select select-exchange">
+                                                <option value="0">USD</option>
+                                                <option value="1">EUR</option>
+                                                <option value="2">RUB</option>
+                                            </select>
+                                        </div>
+
+                                        <span class="__desc">USD - 557,427.56 USD</span>
+                                    </div>
+
+                                    <div class="col col--sm-6">
+                                        <span>Get</span>
+
+                                        <div class="input-wrp">
+                                            <input class="textfield" type="text" value="0.00" placeholder="" />
+
+                                            <select class="js-select select-exchange">
+                                                <option value="0">BTC</option>
+                                                <option value="1">ETH</option>
+                                                <option value="2">DSH</option>
+                                                <option value="3">LTC</option>
+                                            </select>
+                                        </div>
+
+                                        <span class="__desc">Bitcoin - 9.00 BTC</span>
+                                    </div>
+                                </div>
+
+                                <button class="custom-btn custom-btn--medium custom-btn--style-2 wide" type="submit" role="button">Calculate</button>
+                            </form>
+                        </div>
+                        <!-- end calculator -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+
+        
+        <!-- start section We Can Help You-->
+        <section class="section jarallax" data-speed="0.5">
+            <img class="jarallax-img" src="{% static 'img/bg_.jpg' %}" alt="demo" />
+
+            <div class="pattern" style="background-color: rgba(0, 0, 0, 0.53);"></div>
+
+            <div class="grid grid--container">
+                <div class="section-heading section-heading--center section-heading--white  col-MB-45">
+                    <h2 class="__title">We can Help You</h2>
+                </div>
+
+                <div class="row row--xs-middle">
+                    <div class="col col--xs-10">
+                        <!-- start company contacts -->
+                        <div class="company-contacts  text--center">
+                            <div class="__inner">
+                                <div class="row row--xs-between">
+                                    <!-- start item -->
+                                    <div class="col col--lg-4 col--xl-3">
+                                        <div class="__item">
+                                            <p>1010 Avenue of the Moon New York, NY 10018 US.</p>
+                                        </div>
+                                    </div>
+                                    <!-- end item -->
+
+                                    <!-- start item -->
+                                    <div class="col col--sm-6 col--lg-4 col--xl-3">
+                                        <div class="__item">
+                                            <p>Call Us: <a href="tel:+70000000000">(066) 052 39876</a></p>
+                                        </div>
+                                    </div>
+                                    <!-- end item -->
+
+                                    <!-- start item -->
+                                    <div class="col col--sm-6 col--lg-4 col--xl-3">
+                                        <div class="__item">
+                                            <p>Email: <a href="mailto:info@crypterium.co">info@crypterium.co</a></p>
+                                        </div>
+                                    </div>
+                                    <!-- end item -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end company contacts -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+
+    </main>
+    <!-- end main -->
+
+{% endblock content %}

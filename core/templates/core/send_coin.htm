@@ -1,0 +1,61 @@
+{% extends 'core/base.htm' %}
+{% load static %}
+
+{% block title %} SendCoin {% endblock title %}
+
+{% block content %}
+    <!-- start main -->
+    <main role="main">
+        <!-- start section -->
+        <section class="section section--no-pt section--no-pb section--light-bg">
+            <div class="grid grid--container">
+                <div class="authorization authorization--login">
+                    <a class="site-logo" href="{% url 'index' %}">
+                        <img class="img-responsive" width="175" height="42" src="{% static 'img/site_logo_2.png' %}" alt="demo">
+                    </a>
+
+                    <form class="authorization__form" action="{% url 'send_coin_save' %}" method = "POST"> {% csrf_token %}
+                        <h3 class="__title">Send Coin</h3>
+
+                        <div class="input-wrp">
+                            <input class="textfield" type="text" value="" placeholder="address" name = "address"/>
+                        </div>
+
+                        <div class="input-wrp">
+                            <i class="textfield-ico fontello-eye"></i>
+                            <input class="textfield" type="text" value="" placeholder="amount" name = "amount" />
+                        </div>
+
+                        <div>
+                            <!-- <a href="sign_up.html#recovery">I forgot my password</a> -->
+                            <button class="custom-btn custom-btn--medium custom-btn--style-2 wide" type="submit" role="button">Submit</button>
+                        </div>
+                        
+                        {% if messages %}
+                        <div class = "input-wrp">
+                            {% for message in messages %}
+                                {% if message.tags == 'error' %}
+                                    <div class = "alert alert-danger mt-4 ml-3 text-center" style = "width:100%;">
+                                        {{message}}
+                                    </div>
+                                {% endif %}
+                                {% if message.tags == 'success' %}
+                                    <div class = "alert alert-success ml-3 mt-4 text-dark" style = "width:100%;">
+                                        {{message}}
+                                    </div>
+                                {% endif %}
+                            {%endfor %}
+                        </div>              
+                        {% endif %}
+                        <p class="text--center">Want to claim coin? <a href="{% url 'receive_coin' %}"> Receive Coin</a></p>
+                        <p class="text--center"> <a href="{% url 'wallet' %}"> Take Me To My Wallet </a></p>
+                        <p class="text--center"> <a href="{% url 'history' %}">View My Transaction History</a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+    </main>
+    <!-- end main -->
+
+{% endblock content %}

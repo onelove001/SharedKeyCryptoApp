@@ -1,0 +1,60 @@
+<!-- start header -->
+{% load static %}
+
+<header id="top-bar" class="top-bar--light">
+    <div id="top-bar__inner">
+        <a id="top-bar__logo" class="site-logo" href="">
+            <img class="img-responsive" width="175" height="42" src="{% static 'img/site_logo.png' %}" alt="demo" />
+            <img class="img-responsive" width="175" height="42" src="{% static 'img/site_logo_2.png' %}" alt="demo" />
+        </a>
+
+        <a id="top-bar__navigation-toggler" href="javascript:void(0);"><span></span></a>
+        {% if request.user.is_authenticated %}
+        <div id="top-bar__navigation-wrap">
+            <div>
+                <nav id="top-bar__navigation" class="navigation" role="navigation">
+                    <ul>
+                        <li class="">
+                            <a href="{% url 'index' %}"><span>Home</span></a>
+                        </li>
+
+                        <!-- <li>
+                            <a href=""><span>Mining</span></a>
+                        </li> -->
+
+                        <li>
+                            <a href="{% url 'wallet' %}"><span>Wallet</span></a>
+                        </li>
+                        <li>
+                            <a href=""><span> Notification ( {{ numbers }} )</span></a>
+                            <div class="submenu">
+                                <ul>
+                                    {% if numbers == 0 %}
+                                    <li><a href="{% url 'receive_coin' %}"> You Do Not Have A Pending Transaction </a></li>
+                                    {% endif %}
+                                    {% for n in transactions %}
+                                    <li><a href="{% url 'receive_coin' %}"> Claim Your {{n.transaction_amount}} bitcoins </a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <br class="hide--lg">
+
+                <ul id="top-bar__subnavigation">
+                    <li><a class="custom-btn custom-btn--small custom-btn--style-2" href="">Logged In: {{request.user.username}}</a></li>
+                    <li><a class="custom-btn custom-btn--small custom-btn--style-5" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        {% else %}
+        <ul id="top-bar__subnavigation">
+            <li><a class="custom-btn custom-btn--small custom-btn--style-3" href="{% url 'login' %}">Login</a></li>
+            <li><a class="custom-btn custom-btn--small custom-btn--style-4" href="{% url 'register' %}">Sign Up</a></li>
+        </ul>
+        {% endif %}
+    </div>
+</header>
+<!-- end header -->

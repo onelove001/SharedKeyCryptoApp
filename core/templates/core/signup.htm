@@ -1,0 +1,73 @@
+{% extends 'core/base.htm' %}
+{% load static %}
+
+{% block title %} Sign Up {% endblock title %}
+
+{% block content %}
+    <main role="main">
+        <!-- start section -->
+        <section class="section section--no-pt section--no-pb section--light-bg">
+            <div class="grid grid--container">
+                <div class="authorization authorization--registration">
+                    <!-- this is demo, remove div class row and div's class col -->
+                    <div class="row">
+                        <div class="col col--md-auto">
+                            <div class="text--center">
+                                <a class="site-logo" href="#">
+                                    <img class="img-responsive" width="175" height="42" src="{% static 'img/site_logo_2.png' %}" alt="demo">
+                                </a>
+                            </div>
+
+                            <form class="authorization__form" action="{% url 'register_save' %}" method = "POST"> {% csrf_token %}
+                                <h3 class="__title">Sign Up</h3>
+
+                                <div class="input-wrp">
+                                    <input class="textfield" type="text" value="" placeholder="Username" name = "username"/>
+                                </div>
+
+                                <div class="input-wrp">
+                                    <input class="textfield" type="text" value="" placeholder="Email" name = "email" />
+                                </div>
+
+                                <div class="input-wrp">
+                                    <i class="textfield-ico fontello-eye"></i>
+                                    <input class="textfield" type="password" value="" placeholder="Password" name = "password"/>
+                                </div>
+
+                                <div class="input-wrp">
+                                    <i class="textfield-ico fontello-eye"></i>
+                                    <input class="textfield" type="password" value="" placeholder="Confirm Password" name = "password1"/>
+                                </div>
+
+                                <div>
+                                    <button class="custom-btn custom-btn--medium custom-btn--style-2 wide" type="submit" role="button">Submit</button>
+                                </div>
+                                
+                                {% if messages %}
+                                <div class = "input-wrp">
+                                    {% for message in messages %}
+                                        {% if message.tags == 'error' %}
+                                            <div class = "custom-btn--style-5 mt-4" style = "width:100%;">
+                                                {{message}}
+                                            </div>
+                                        {% endif %}
+                                        {% if message.tags == 'success' %}
+                                            <div class = "alert alert-success ml-3 mt-4 text-dark" style = "width:100%;">
+                                                {{message}}
+                                            </div>
+                                        {% endif %}
+                                    {%endfor %}
+                                </div>              
+                                {% endif %}
+                                <p class="text--center"> Already have an account? <a href="{% url 'login' %}">Log In</a> </p>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+	</main>
+	<!-- end main -->
+{% endblock content %}
